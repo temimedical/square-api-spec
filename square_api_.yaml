@@ -25,6 +25,7 @@ paths:
           description: A comma-separated list of location IDs to filter inventory counts
           schema:
             type: string
+            default: '9D3R8VM2V3294'
       responses:
         '200':
           description: Inventory counts retrieved successfully
