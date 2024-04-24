@@ -1,0 +1,64 @@
+openapi: 3.0.0
+info:
+  title: Square Inventory API
+  description: API for accessing inventory information in Square.
+  version: 1.0.0
+servers:
+  - url: https://connect.squareup.com/v2
+    description: Square API production environment
+paths:
+  /inventory/catalog_object_id0:
+    get:
+      operationId: getInventoryCounts
+      summary: Retrieves inventory counts for a specific catalog object at specified locations.
+      parameters:
+        - name: catalog_object_id
+          in: path
+          required: true
+          description: The unique identifier for the catalog object
+          schema:
+            type: string
+        - name: location_ids
+          in: query
+          required: true
+          description: A comma-separated list of location IDs to filter inventory counts
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Inventory counts retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                  counts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        catalog_object_id:
+                          type: string
+                        catalog_object_type:
+                          type: string
+                        state:
+                          type: string
+                        location_id:
+                          type: string
+                        quantity:
+                          type: string
+                        calculated_at:
+                          type: string
+                          format: date-time
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - BearerAuth: []
