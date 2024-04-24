@@ -18,14 +18,14 @@ paths:
           description: The unique identifier for the catalog object
           schema:
             type: string
-            example: 'W62UWFY35CWMYGVWK6TWJDNI'  # Changed from default to example
+            default: 'W62UWFY35CWMYGVWK6TWJDNI'  # Changed from default to example
         - name: location_ids
           in: query
           required: true
           description: A comma-separated list of location IDs to filter inventory counts
           schema:
             type: string
-            example: '9D3R8VM2V3294'  # Changed from default to example
+            default: '9D3R8VM2V3294'  # Changed from default to example
       responses:
         '200':
           description: Inventory counts retrieved successfully
