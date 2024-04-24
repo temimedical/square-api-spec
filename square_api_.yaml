@@ -57,6 +57,14 @@ paths:
                           type: string
                           format: date-time
 components:
+  schemas:
+    ExampleSchema:
+      type: object
+      properties:
+        name:
+          type: string
+        age:
+          type: integer
   securitySchemes:
     BearerAuth:
       type: http
