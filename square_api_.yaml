@@ -7,7 +7,7 @@ servers:
   - url: https://connect.squareup.com/v2
     description: Square API production environment
 paths:
- /inventory/{catalog_object_id}:
+  /inventory/{catalog_object_id}/counts:
     get:
       operationId: getInventoryCounts
       summary: Retrieves inventory counts for a specific catalog object at specified locations.
@@ -18,14 +18,14 @@ paths:
           description: The unique identifier for the catalog object
           schema:
             type: string
-            default: 'W62UWFY35CWMYGVWK6TWJDNI'
+            example: 'W62UWFY35CWMYGVWK6TWJDNI'  # Changed from default to example
         - name: location_ids
           in: query
           required: true
           description: A comma-separated list of location IDs to filter inventory counts
           schema:
             type: string
-            default: '9D3R8VM2V3294'
+            example: '9D3R8VM2V3294'  # Changed from default to example
       responses:
         '200':
           description: Inventory counts retrieved successfully
@@ -57,14 +57,6 @@ paths:
                           type: string
                           format: date-time
 components:
-  schemas:
-    ExampleSchema:
-      type: object
-      properties:
-        name:
-          type: string
-        age:
-          type: integer
   securitySchemes:
     BearerAuth:
       type: http
