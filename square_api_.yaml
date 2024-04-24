@@ -56,7 +56,7 @@ paths:
                         calculated_at:
                           type: string
                           format: date-time
-                          components:
+components:
   schemas:
     ExampleSchema:
       type: object
